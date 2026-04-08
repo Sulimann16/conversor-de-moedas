@@ -55,7 +55,6 @@
             tela.value = '';
         }
         
-        // Impede dois operadores seguidos? (Bug aqui)
         expressao += valor;
         tela.value = expressao;
     }
@@ -66,14 +65,12 @@
     }
 
     function apagar() {
-        // Remove o último caractere
         expressao = expressao.slice(0, -1); 
         document.getElementById("display").value = expressao;
     }
 
     function calcular() {
         try {
-            // O perigoso eval()
             const resultado = eval(expressao);
             
             if (resultado == Infinity) {
@@ -81,7 +78,6 @@
             }
 
             document.getElementById("display").value = String(resultado);
-            // Bug: Esquecendo de atualizar a variável expressao
         } catch (e) {
             document.getElementById("display").value = "Erro";
         }
